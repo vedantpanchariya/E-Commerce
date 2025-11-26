@@ -36,7 +36,7 @@ export default function Products(){
     },[])
 
     return (
-        <section id="services">
+        <section>
             {loading && <div className="spinner"></div>}
             {error && <p>Error in laoding products</p>}
             
@@ -44,7 +44,7 @@ export default function Products(){
             <div id="products">
                 {productsList.map((item) => ( 
                     <Link to= {`/products/${item.id}`} className="product" key={item.id}>
-                        <img src={item.image} alt="products_image" height={"200px"} width={"200px"} />
+                        <img src={item.image} alt="products_image" />
                         <p>{item.title}</p>
                     </Link>
                     

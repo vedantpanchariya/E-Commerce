@@ -2,9 +2,22 @@ import { useParams } from "react-router"
 import { useState, useEffect } from "react";
 import { useContext } from "react";
 import { cartContext } from "./CartProvider";
+import toast from "react-hot-toast";
 
 export default function ProductDetails(){
     
+    const notify = () => toast.success("Added To Cart", {
+      style: {
+        border: '1px solid #414A37',
+        padding: '16px',
+        color: '#414A37',
+      },
+      iconTheme: {
+        primary: '#414A37',
+        secondary: '#FFFAEE',
+      },
+    })
+
     const {id} = useParams();
     const[product,setProduct] = useState([])
     const[error,setError] = useState(null)
@@ -41,10 +54,8 @@ export default function ProductDetails(){
     return(
         <section id="services"> 
 
-        {loading && <div className="spinner"></div>}
-        {error && <p>Error in laoding products</p>}
-
-        <div className="product-details-wrapper">
+        {loading ? <div className="spinner"></div> : 
+            <div className="product-details-wrapper">
             <div className="product-details-container">
 
                 <div className="product-image-box">
@@ -67,13 +78,18 @@ export default function ProductDetails(){
                   </p>
 
                   <div className="product-buttons">
-                    <button className="btn primary-btn" onClick={()=>{addToCart(product)}}>Add to Cart</button>
+                    <button className="btn primary-btn" onClick={()=>{addToCart(product);notify();}}>Add to Cart</button>
+                    
                     <button className="btn secondary-btn">Buy Now</button> 
                 </div>
             </div>
 
             </div>
         </div>
+        }
+        {error && <p>Error in laoding products</p>}
+
+        
 
         </section>
     )

@@ -43,7 +43,7 @@ export default function Header(){
                 <div id="logo"><h2>Logo</h2></div>
 
                 <div className="navigation"> 
-                    <div id="hamburger" onClick={handleShow}>
+                    <div id="hamburger" onClick={handleShow} ref={burgerRef}>
                         <div className="burger"></div>
                         <div className="burger"></div>
                         <div className="burger"></div> 
@@ -57,7 +57,7 @@ export default function Header(){
                         <li><NavLink className={(e) => {return e.isActive ? "active":""}} to="/products" onClick={handleShow} >Products</NavLink></li>
                         <li><NavLink className={(e) => {return e.isActive ? "active":""}} to="/cart"   onClick={handleShow} >
                             🛒
-                            <span> {cart.length} </span> 
+                            <span> {cart.reduce((sum,item) => sum + item.quantity ,0)}</span> 
                             </NavLink>
                         </li>
                         <li><NavLink className={(e) => {return e.isActive ? "active":""}} to="/Login"    onClick={handleShow} >Get Started</NavLink></li> 

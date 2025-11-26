@@ -1,41 +1,48 @@
-import { useState } from "react"
 import { useContext } from "react"
 import { cartContext } from "./CartProvider"
+import { Link } from "react-router";
 
 export default function Cart(){
     
-    const{cart} = useContext(cartContext);
-
+    const{cart, increaseQuantity , decreaseQuantity} = useContext(cartContext);
+    const calculate = cart.reduce(
+        (sum,item) => sum + item.price * item.quantity,
+        0
+    )
+    const total = calculate.toFixed(2); 
     return(
         <>
-            <div className="product-details-wrapper">
+            <div className="cart-details-wrapper">
+                <h1>Shopping Cart</h1>
                 
-                
-                {cart.map((item) => (
-                    <div className="product-details-container" key={item.id}>
-                        <div className="product-image-box">
-                          <img src={item.image} alt={item.title} />
+                {cart.length < 1 ? <h2>Hmm....Your Cart Looks Empty,  Wanna <Link to = "/products">Shop</Link> ?!</h2> : 
+                    cart.map((item) => (
+                    <div className="shopping-cart" key={item.id}>
+
+                        <div className="cart-info">
+                            <div className="cart-image">
+                              <img src={item.image} alt={item.title} />
+                            </div>
+
+                            <div className="cart-details">
+
+                              <h1 className="cart-title">{item.title}</h1>  
+                              <p className="cart-price">${item.price}</p>
+
+                              <p className="product-quantity">
+                                <button onClick={() => decreaseQuantity(item.id)}>{item.quantity > 1 ? "-":"🗑"}</button>
+                                <span>Qty : {item.quantity} </span>
+                                <button onClick={() => increaseQuantity(item.id)}>+</button>
+                              </p>
+
+                            </div>
                         </div>
-
-                        <div className="product-info">
-                          <h1 className="product-title">{item.title}</h1>
-
-                          <div className="product-rating">
-                            <span className="star">⭐</span>
-                            <span>{item.rating?.rate} </span>
-                            <span className="rating-count">({item.rating?.count} reviews)</span>
-                          </div>
-
-                          <p className="product-price">${item.price}</p>
-
-                          <p className="product-description">
-                            {item.description}
-                          </p>
-                        </div>
+                        
                     </div>
-                ))}
-                
+                ))
+                }
+                <div className="cart-total">{cart.length > 0 && <p >Total : {total}$</p> }</div>
             </div>
         </>
     )
-}
+} 

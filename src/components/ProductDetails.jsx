@@ -1,5 +1,7 @@
 import { useParams } from "react-router"
 import { useState, useEffect } from "react";
+import { useContext } from "react";
+import { cartContext } from "./CartProvider";
 
 export default function ProductDetails(){
     
@@ -33,6 +35,8 @@ export default function ProductDetails(){
 
         },[id])
     
+        const {addToCart} = useContext(cartContext)
+
 
     return(
         <section id="services"> 
@@ -63,8 +67,8 @@ export default function ProductDetails(){
                   </p>
 
                   <div className="product-buttons">
-                    <button className="btn primary-btn">Add to Cart</button>
-                    <button className="btn secondary-btn">Buy Now</button>
+                    <button className="btn primary-btn" onClick={()=>{addToCart(product)}}>Add to Cart</button>
+                    <button className="btn secondary-btn">Buy Now</button> 
                 </div>
             </div>
 

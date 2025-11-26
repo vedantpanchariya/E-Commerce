@@ -3,6 +3,7 @@ import ErrorPage from "./ErrorPage"
 import Products from "./Products";
 import Home from "./Home";
 import ProductDetails from "./ProductDetails";
+import Cart from "./Cart";
 
 const routes = [
     {
@@ -22,6 +23,10 @@ const routes = [
             {
                 path:"products/:id",
                 element:<ProductDetails />
+            },
+            {
+                path:"cart",
+                element:<Cart/>
             }
         ]
     },

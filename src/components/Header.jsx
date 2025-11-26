@@ -1,5 +1,7 @@
 import {  useEffect, useRef, useState } from "react";
 import { NavLink } from "react-router";
+import { useContext } from "react";
+import { cartContext } from "./CartProvider";
 
 export default function Header(){
 
@@ -7,7 +9,6 @@ export default function Header(){
 
     function handleShow(){
         setMenu(prevState => !prevState)
-        console.log(menu)
     }
 
     const burgerRef = useRef(null)
@@ -33,6 +34,8 @@ export default function Header(){
         
     },[])
 
+    const {cart} = useContext(cartContext)
+
     return(
         
         <>
@@ -49,9 +52,14 @@ export default function Header(){
                     <div id="links-container" className={menu ? "menu":null}>
                     <ul>
                         <li><button id="close" onClick={handleShow}><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></button></li>
+                        
                         <li><NavLink className={(e) => {return e.isActive ? "active":""}} to="/"     onClick={handleShow} >Home</NavLink></li>
                         <li><NavLink className={(e) => {return e.isActive ? "active":""}} to="/products" onClick={handleShow} >Products</NavLink></li>
-                        <li><NavLink className={(e) => {return e.isActive ? "active":""}} to="/footer"   onClick={handleShow} >Contact</NavLink></li>
+                        <li><NavLink className={(e) => {return e.isActive ? "active":""}} to="/cart"   onClick={handleShow} >
+                            🛒
+                            <span> {cart.length} </span> 
+                            </NavLink>
+                        </li>
                         <li><NavLink className={(e) => {return e.isActive ? "active":""}} to="/Login"    onClick={handleShow} >Get Started</NavLink></li> 
                     </ul>
                 </div> 

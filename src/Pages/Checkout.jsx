@@ -1,13 +1,15 @@
-import { useContext } from "react"
+import { useContext, useRef } from "react"
 import toast from "react-hot-toast"
 import { cartContext } from "../context/CartProvider"
-
 
 export default function Checkout(){
 
     const order_success = () => toast.success("Order Confirmed")
     const order_fail = () => toast.error("Add items first")
     const{cart,setCart} = useContext(cartContext)
+
+    const formRef = useRef(null)
+
     const calculate = cart.reduce(
         (sum,item) => sum + item.price * item.quantity,
         0
@@ -16,14 +18,14 @@ export default function Checkout(){
     return(
         <main id="checkout" >
             <div className="information">
-            <form id="checkOutForm" onSubmit={(e)=>{
+            <form id="checkOutForm" ref={formRef} onSubmit={(e)=>{
                 e.preventDefault();
                 if(cart.length === 0){
                     return order_fail();
                 }
                 order_success();
                 setCart([]);
-                
+                formRef.current.reset();
             }}>
                 <h1>Checkout Cart</h1>
                <div id="details">
@@ -42,27 +44,27 @@ export default function Checkout(){
                     <h2>Payment Method</h2>
                     
                     <div className="options">
-                        <input type="radio" name="payment-options" id="otpion-2" value={"Wallet"} required/>                        
-                        <label htmlFor="option-2"> Wallet </label> 
+                        <input type="radio" name="payment-options" id="option-1" value={"Wallet"} required/>                        
+                        <label htmlFor="option-1"> Wallet </label> 
                     </div>
 
                     <h2>Another Payment Methods </h2>
 
                     <div className="options">
-                        <input type="radio" name="payment-options" id="otpion-1" value={"Upi"}/>
-                        <label htmlFor="option-1">UPI</label>
+                        <input type="radio" name="payment-options" id="option-2" value={"Upi"}/>
+                        <label htmlFor="option-2">UPI</label>
                     </div>
                     <div className="options">
-                        <input type="radio" name="payment-options" id="otpion-2" value={"Net Banking"}/> 
+                        <input type="radio" name="payment-options" id="option-3" value={"Net Banking"}/> 
                         <label htmlFor="option-3"> Net Banking </label> 
                     </div>
                     <div className="options">
-                        <input type="radio" name="payment-options" id="otpion-3" value={"Debit or Credit Card"}/> 
-                        <label htmlFor="option-3"> Debit or Credit Card </label> 
+                        <input type="radio" name="payment-options" id="option-4" value={"Debit or Credit Card"}/> 
+                        <label htmlFor="option-4"> Debit or Credit Card </label> 
                     </div>
                     <div className="options">
-                        <input type="radio" name="payment-options" id="otpion-4" value={"Cash on Delivery"}/>
-                        <label htmlFor="option-4">
+                        <input type="radio" name="payment-options" id="option-5" value={"Cash on Delivery"}/>
+                        <label htmlFor="option-5">
                             <h4>Cash on Delivery/Pay on Delivery</h4>
                             <h5>Cash, Card and UPI. </h5>
                             </label> 

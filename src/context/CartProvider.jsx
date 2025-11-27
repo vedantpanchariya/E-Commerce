@@ -46,7 +46,7 @@ export default function CartProvider({children}){
 }
 
     return(
-        <cartContext.Provider value={{cart,addToCart , increaseQuantity , decreaseQuantity}}>
+        <cartContext.Provider value={{cart,addToCart , increaseQuantity , decreaseQuantity,setCart}}>
             {children}
         </cartContext.Provider>
     )

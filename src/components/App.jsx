@@ -2,7 +2,7 @@ import Header from "./Header"
 import "../App.css"
 import { Outlet } from "react-router"
 import Footer from "./Footer"
-import CartProvider from "./CartProvider"
+import CartProvider from "../context/CartProvider"
 import { Toaster } from "react-hot-toast"
 
 

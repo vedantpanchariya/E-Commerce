@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import { cartContext } from "./CartProvider"
+import { cartContext } from "../context/CartProvider"
 import { Link } from "react-router";
 
 export default function Cart(){
@@ -41,7 +41,12 @@ export default function Cart(){
                     </div>
                 ))
                 }
-                <div className="cart-total">{cart.length > 0 && <p >Total : {total}$</p> }</div>
+                {cart.length > 0 && <div className="cart-bottom">
+                    <button>
+                        <Link to={"/checkout"}> Proceed to Buy </Link>
+                    </button>
+                    <p >Total : {total}$</p>
+                </div>}
             </div>
         </>
     )

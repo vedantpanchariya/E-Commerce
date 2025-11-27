@@ -1,9 +1,10 @@
-import App from "./App";
-import ErrorPage from "./ErrorPage"
-import Products from "./Products";
-import Home from "./Home";
-import ProductDetails from "./ProductDetails";
-import Cart from "./Cart";
+import App from "../components/App";
+import ErrorPage from "../Pages/ErrorPage"
+import Products from "../Pages/Products";
+import Home from "../Pages/Home";
+import ProductDetails from "../Pages/ProductDetails";
+import Cart from "../Pages/Cart";
+import Checkout from "../Pages/Checkout";
 
 const routes = [
     {
@@ -27,6 +28,10 @@ const routes = [
             {
                 path:"cart",
                 element:<Cart/>
+            },
+            {
+                path:"checkout",
+                element:<Checkout/>
             }
         ]
     },

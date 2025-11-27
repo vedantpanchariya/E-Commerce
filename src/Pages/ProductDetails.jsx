@@ -1,8 +1,9 @@
 import { useParams } from "react-router"
 import { useState, useEffect } from "react";
 import { useContext } from "react";
-import { cartContext } from "./CartProvider";
+import { cartContext } from "../context/CartProvider";
 import toast from "react-hot-toast";
+import { Link } from "react-router";
 
 export default function ProductDetails(){
     
@@ -80,7 +81,7 @@ export default function ProductDetails(){
                   <div className="product-buttons">
                     <button className="btn primary-btn" onClick={()=>{addToCart(product);notify();}}>Add to Cart</button>
                     
-                    <button className="btn secondary-btn">Buy Now</button> 
+                    <button className="btn secondary-btn"><Link to={"/checkout"} onClick={() => addToCart(product)}>Buy Now</Link></button> 
                 </div>
             </div>
 

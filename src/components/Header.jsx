@@ -1,7 +1,7 @@
 import {  useEffect, useRef, useState } from "react";
 import { NavLink } from "react-router";
 import { useContext } from "react";
-import { cartContext } from "./CartProvider";
+import { cartContext } from "../context/CartProvider";
 
 export default function Header(){
 
@@ -60,7 +60,6 @@ export default function Header(){
                             <span> {cart.reduce((sum,item) => sum + item.quantity ,0)}</span> 
                             </NavLink>
                         </li>
-                        <li><NavLink className={(e) => {return e.isActive ? "active":""}} to="/Login"    onClick={handleShow} >Get Started</NavLink></li> 
                     </ul>
                 </div> 
 

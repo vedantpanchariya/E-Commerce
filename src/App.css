@@ -80,12 +80,10 @@ nav ul{
 a.active{
     color: #DBC2A6;
     background-color: #414A37;
-
 }
 .navbar.scrolled a.active{
     color: #414A37;
     background-color: #DBC2A6;
-
 }
 .navbar.scrolled .active{
     padding: 5px;   
@@ -412,6 +410,7 @@ h1{
   border: none;
   transition: 0.25s ease;
 }
+
 /* primary button */
 .primary-btn {
   background-color: var(--primary);
@@ -421,6 +420,7 @@ h1{
 .primary-btn:hover {
   background-color: #2f3628;
 }
+
 .primary-btn:active{
     transform: translateY(2px);
     background-color: #222c18;
@@ -432,14 +432,17 @@ h1{
   background-color: transparent;
   border: 2px solid var(--primary);
 }
+
 .secondary-btn a{
     padding: 12px 28px;
     text-decoration: none;
     color: var(--primary);
 }
+
 .secondary-btn:hover {
   background-color: var(--primary);
 }
+
 .secondary-btn a:hover{
   color: white;
 }
@@ -455,6 +458,7 @@ h1{
   font-weight: 600;
   gap: 10px;
 }
+
 .shopping-cart{
     border-bottom: 1px solid #414A37;
     max-width: 1200px;
@@ -463,16 +467,19 @@ h1{
     border-radius: 6px;
     color: var(--primary);
 }
+
 .cart-details-wrapper>h1{
     border-bottom: 1px solid black;
     margin-bottom: 20px;
     color: #414A37;
     font-size: 1.8rem;
 }
+
 .cart-details-wrapper>h2{
     color: #414A37;
     font-size: 1.6rem;
 }
+
 .cart-details-wrapper h2 a{
     text-decoration: none;
     background-color: #414A37;
@@ -480,14 +487,17 @@ h1{
     border-radius: 6px;
     padding: 0 5px;
 }
+
 .cart-details-wrapper h2 a:hover{
     text-decoration: underline;
 }
+
 .cart-info{
     padding: 10px;
     display: flex;
     gap: 40px;
 }
+
 .cart-image img{
     height: 200px;
     width: 200px;
@@ -495,12 +505,14 @@ h1{
     padding: 20px;
     border-radius: 6px;
 }
+
 .product-quantity{
     margin-top: 20px;
     display: flex;
     gap: 10px;
     align-items: center;
 }
+
 .product-quantity button{
     border: none; 
     display: flex;
@@ -513,32 +525,39 @@ h1{
     color: #DBC2A6;
     font-size: 20px;
 }
+
 .product-quantity button:active{
     transform: translateY(1px);
     background-color: #d3b490;
 }
+
 .product-quantity span{
   font-size: 16px;
 }
+
 .cart-bottom{
     width: 100%;
     color: #414A37;
     display: flex;
     justify-content: space-around;
 }
+
 .cart-bottom button{
     border: none;
     padding: 0.6rem 1.2rem;
     border-radius: 8px;
     background-color: #414A37;
 }
+
 .cart-bottom button:hover{
     background-color: #343f28;
 }
+
 .cart-bottom button:active{
     transform: translateY(1px);
     background-color: #343f28;
 }
+
 .cart-bottom a{
     text-decoration: none;
     color: #DBC2A6;

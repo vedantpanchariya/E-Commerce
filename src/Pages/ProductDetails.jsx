@@ -54,9 +54,10 @@ export default function ProductDetails(){
 
     return(
         <section id="services"> 
-
+        
         {loading ? <div className="spinner"></div> : 
             <div className="product-details-wrapper">
+              <Link to={"/products"}> <img src="/src/Images/undo.png" alt="undo" /> </Link>
             <div className="product-details-container">
 
                 <div className="product-image-box">

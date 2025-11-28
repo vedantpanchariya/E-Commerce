@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { Link } from "react-router";
 
 export default function Hero(){
     const upRef = useRef(null)
@@ -44,11 +45,12 @@ export default function Hero(){
             <div id="container" ref={containerRef}>
                 
                 <div className="right" id="up" ref={upRef}>
-                    <h1>Product</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                       Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    <h1>Shoppy-E</h1>
+                    <p>Elevate your lifestyle with thoughtfully crafted products.
+                        Designed for durability, comfort, and timeless appeal.
+                        Start exploring — your next favorite item is waiting.
                     </p>
-                    <a href="#">Learn More</a>
+                    <Link to={"/products"}>Learn More</Link>
                 </div> 
                 <div className="left" id="down" ref={downRef}></div>
             </div>

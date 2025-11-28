@@ -55,7 +55,7 @@ nav ul{
 }
 
 .navbar.scrolled .navigation a::after{
-    background-color: white;
+    background-color: #DBC2A6;
 }
 
 .navigation a:hover::after{
@@ -75,7 +75,17 @@ nav ul{
 .active{
     border-radius: 8px;
     padding: 5px;
-    box-shadow: 1px 1px 1px 1px rgba(65, 74, 55,1);   
+    box-shadow: 1px 1px 1px 1px rgb(129, 111, 93);   
+}
+a.active{
+    color: #DBC2A6;
+    background-color: #414A37;
+
+}
+.navbar.scrolled a.active{
+    color: #414A37;
+    background-color: #DBC2A6;
+
 }
 .navbar.scrolled .active{
     padding: 5px;   

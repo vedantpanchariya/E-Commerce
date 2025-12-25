@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { cartContext } from "../context/CartProvider";
 import toast from "react-hot-toast";
 import { Link } from "react-router";
+import undo from "../Images/undo.png";
 
 export default function ProductDetails(){
     
@@ -57,7 +58,7 @@ export default function ProductDetails(){
         
         {loading ? <div className="spinner"></div> : 
             <div className="product-details-wrapper">
-              <Link to={"/products"}> <img src="/src/Images/undo.png" alt="undo" /> </Link>
+              <Link to={"/products"}> <img src={undo} alt="undo" /> </Link>
             <div className="product-details-container">
 
                 <div className="product-image-box">
